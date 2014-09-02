@@ -49,8 +49,7 @@ public class Calculadora {
 		
 		if(!exp.equals("ERRO")){
 			resultado = Double.parseDouble(exp);	
-		}
-		else{
+		} else{
 			resultado = null;
 		}
 		 
@@ -65,22 +64,17 @@ public class Calculadora {
 		String resultado = "";
 		if(group.contains("*")){
 			resultado = ""+(v1*v2);
-		}
-		
-		else if(group.contains("/")){
+		} else if(group.contains("/")){
 			if(v2!=0){
 				resultado = ""+(v1/v2);	
-			}
-			else{
+			} else{
 				resultado = "ERRO";
 			}			
 		}
 		
 		else if(group.contains("+")){
 			resultado = ""+(v1+v2);
-		}
-		
-		else if(group.contains("-")){
+		} else if(group.contains("-")){
 			resultado = ""+(v1-v2);
 		}
 		
@@ -143,8 +137,8 @@ public class Calculadora {
 	    		    	
 	    	if(resto.equals(".0")){
 	    		resultado = resultado.replace(resto, "");
-	    	}
-	    	else{
+	    	
+	    	} else{
 	    		log.print("Ve a parte fracionaria: "+resto);
 	    	}
 	    	
