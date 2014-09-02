@@ -2,21 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="calculadora.MainActivity$PlaceholderFragment" >
-    
-    
-	<EditText
+
+    <EditText
         android:id="@+id/editTextResultado"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:ems="10" >
-		
+        android:layout_height="40dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="9dp"
+        android:background="#CCCCFF"
+        android:ems="10"
+        android:inputType="text" >
+
         <requestFocus />
     </EditText>
 
@@ -25,9 +28,34 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextResultado"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:columnCount="4"
+        android:layout_marginTop="15dp"
+        android:columnCount="5"
         android:rowCount="4" >
+
+        <Button
+            android:id="@+id/buttonParenteseEsquerdo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/funcaoParenteses" />
+
+        <Button
+            android:id="@+id/buttonControleCopiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/controleCopiar" />
+
+        <Button
+            android:id="@+id/buttonControleColar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/controleColar" />
+
+        <Button
+            android:id="@+id/buttonControleApagar"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:text="@string/controleApagar" />
 
         <Button
             android:id="@+id/buttonNumero7"
@@ -48,10 +76,16 @@
             android:text="@string/numero9" />
 
         <Button
-            android:id="@+id/buttonFuncaoDividir"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonFuncaoElevar"
+            android:layout_width="45dp"
             android:layout_height="wrap_content"
-            android:text="@string/funcaoDividir" />
+            android:text="@string/funcaoElevar" />
+
+        <Button
+            android:id="@+id/buttonFuncaoRaiz"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:text="@string/funcaoRaiz" />
 
         <Button
             android:id="@+id/buttonNumero4"
@@ -72,8 +106,14 @@
             android:text="@string/numero6" />
 
         <Button
+            android:id="@+id/buttonFuncaoDividir"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:text="@string/funcaoDividir" />
+
+        <Button
             android:id="@+id/buttonFuncaoMultiplicar"
-            android:layout_width="wrap_content"
+            android:layout_width="45dp"
             android:layout_height="wrap_content"
             android:text="@string/funcaoMultiplicar" />
 
@@ -97,14 +137,21 @@
 
         <Button
             android:id="@+id/buttonFuncaoSubtrair"
-            android:layout_width="wrap_content"
+            android:layout_width="45dp"
             android:layout_height="wrap_content"
             android:text="@string/funcaoSubtrair" />
 
         <Button
-            android:id="@+id/buttonNumero0"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonFuncaoSomar"
+            android:layout_width="45dp"
             android:layout_height="wrap_content"
+            android:text="@string/funcaoSomar" />
+
+        <Button
+            android:id="@+id/buttonNumero0"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
             android:text="@string/numero0" />
 
         <Button
@@ -115,15 +162,10 @@
 
         <Button
             android:id="@+id/buttonFuncaoIgual"
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
             android:text="@string/funcaoIgual" />
-
-        <Button
-            android:id="@+id/buttonFuncaoSomar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/funcaoSomar" />
     </GridLayout>
-    
+
 </RelativeLayout>

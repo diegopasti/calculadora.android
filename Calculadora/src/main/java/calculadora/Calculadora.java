@@ -22,7 +22,8 @@ public class Calculadora {
 		return analisarExpressao(exp); 
 	}
 	
-	private Double analisarExpressao(String exp){
+	private Double analisarExpressao(String expressao){
+		String exp = expressao;
 		log.print("expressao: "+exp);
 		
 		if(exp.contains("*")) {

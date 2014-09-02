@@ -5,8 +5,7 @@
     <string name="app_name">Calculadora</string>
     <string name="app_config">Configurações</string>
 
-    <!-- Labels -->
-    
+    <!-- Labels -->    
     <string name="numero1">1</string>
     <string name="numero2">2</string>
     <string name="numero3">3</string>
@@ -23,7 +22,15 @@
     <string name="funcaoMultiplicar">*</string>
     <string name="funcaoDividir">/</string>
     <string name="funcaoVirgula">,</string>
-    <string name="funcaoIgual">=</string>    
+    <string name="funcaoIgual">=</string>
+    <string name="funcaoRaiz">√</string>
+    <string name="funcaoElevar">^</string>    
+    
+    <string name="funcaoParenteses">(    )</string>
+    
+    <string name="controleApagar">Limpar</string>
+    <string name="controleCopiar">M+</string>
+    <string name="controleColar">M-</string>
     
     <string name="DigiteValor">Digite o valor:</string>
     
