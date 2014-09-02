@@ -31,11 +31,12 @@ public class Calculadora {
 	}
 	
 	public Double calcular(String exp){
+		System.out.println("Estou mostrando o projeto pro cesar");
 		return analisarExpressao(exp); 
 	}
 	
 	private Double analisarExpressao(String exp){
-		System.out.println("expressão:     "+exp);
+		System.out.println("expressï¿½o:     "+exp);
 		if(exp.contains("*")) {
 			exp = resolverMultiplicacao(exp);
 			System.out.println("Multiplicada:  "+exp);
