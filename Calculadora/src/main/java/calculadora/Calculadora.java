@@ -4,57 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import calculadora.utils.ReportLog;
 
 public class Calculadora {
 	
 	private List<String> operadores;
 	private List<String> numeros;
+	private ReportLog log;
 		
 	public Calculadora(){
-		operadores = new ArrayList<String>();
-		operadores.add("+");
-		operadores.add("-");
-		operadores.add("*");
-		operadores.add("/");
-		
-		numeros = new ArrayList<String>();
-		numeros.add("0");
-		numeros.add("1");
-		numeros.add("2");
-		numeros.add("3");
-		numeros.add("4");
-		numeros.add("5");
-		numeros.add("6");
-		numeros.add("7");
-		numeros.add("8");
-		numeros.add("9");
+		log = new ReportLog();
+		adicionarOperadores();
+		adicionarNumeros();
 	}
 	
 	public Double calcular(String exp){
-		System.out.println("Estou mostrando o projeto pro cesar");
 		return analisarExpressao(exp); 
 	}
 	
 	private Double analisarExpressao(String exp){
-		System.out.println("express�o:     "+exp);
+		log.print("expressao: "+exp);
+		
 		if(exp.contains("*")) {
 			exp = resolverMultiplicacao(exp);
-			System.out.println("Multiplicada:  "+exp);
+			log.print("Multiplicada:  "+exp);
 		}
 		
 		if(exp.contains("/")) {
 			exp = resolverDivisao(exp);
-		    System.out.println("Dividida:      "+exp);
+			log.print("Dividida:      "+exp);
 		}
 	    
 		if(exp.contains("+")) {
 			exp = resolverSoma(exp);
-	    	System.out.println("Somada:        "+exp);
+			log.print("Somada:        "+exp);
 		}
 		
 		if(exp.contains("-")) {
 			exp = resolverSubracao(exp);
-		    System.out.println("Subtraida:     "+exp);	
+			log.print("Subtraida:     "+exp);	
 		}
 	    
 		Double resultado;
@@ -99,6 +87,28 @@ public class Calculadora {
 		return resultado;
 	}
 	
+	private void adicionarOperadores(){
+		operadores = new ArrayList<String>();
+		operadores.add("+");
+		operadores.add("-");
+		operadores.add("*");
+		operadores.add("/");
+	}
+	
+	private void adicionarNumeros(){
+		numeros = new ArrayList<String>();
+		numeros.add("0");
+		numeros.add("1");
+		numeros.add("2");
+		numeros.add("3");
+		numeros.add("4");
+		numeros.add("5");
+		numeros.add("6");
+		numeros.add("7");
+		numeros.add("8");
+		numeros.add("9");
+	}
+	
 	private String resolverMultiplicacao(String exp){
 		return resolver(exp,"\\d+\\*\\d+");
 	}
@@ -118,7 +128,7 @@ public class Calculadora {
 	private String resolver(String exp, String regexp){
 		Pattern padrao = Pattern.compile(regexp);  
 		Matcher matcher = padrao.matcher(exp); 
-		  
+		
 	    int pos = 0;  
 	    while (matcher.find(pos)){  
 	    	String token =  matcher.group();
@@ -129,6 +139,15 @@ public class Calculadora {
 	    	}
 	    	
 	    	String resultado = analisarToken(token);
+	    	String resto = resultado.substring(resultado.lastIndexOf("."));
+	    		    	
+	    	if(resto.equals(".0")){
+	    		resultado = resultado.replace(resto, "");
+	    	}
+	    	else{
+	    		log.print("Ve a parte fracionaria: "+resto);
+	    	}
+	    	
 	    	exp = exp.replace(token, resultado);	
 	    	pos = matcher.end();    
 	    }
